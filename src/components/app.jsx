@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import giphy from 'giphy-api';
 
-import SearchBar from "./search_bar.jsx";
-import Gif from "./gif.jsx";
-import GifList from './gif_list.jsx';
+import SearchBar from "./search_bar";
+import Gif from "./gif";
+import GifList from './gif_list';
 
 
 const GIPHY_API_KEY = 'oSlaUeN6k3Zs1WJ55mGcbmcOSidsgJOv';
@@ -41,19 +41,18 @@ class App extends Component {
   render() {
     return (
       <div>
-      <div className="left-scene">
-      <SearchBar searchFunction={this.search} />
-      <Gif id={this.state.selectedGifId} />
-
-      </div>
-      <div className="right-scene">
-      <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
-
-      </div>
+        <div className="left-scene">
+          <SearchBar searchFunction={this.search} />
+            <div className="selected-gif">
+              <Gif id={this.state.selectedGifId} />
+            </div>
+        </div>
+        <div className="right-scene">
+          <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
+        </div>
       </div>
     );
   }
-
 }
 
 export default App;
